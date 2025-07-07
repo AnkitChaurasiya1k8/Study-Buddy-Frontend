@@ -9,6 +9,9 @@ function Profile() {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({ name: "", username: "" });
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -27,6 +30,7 @@ function Profile() {
       })
       .then((res) => {
         setUserData(res.data);
+        setFormData({ name: res.data.name, username: res.data.username });
       })
       .catch((err) => {
         setError(err.response?.data?.error || "Something went wrong!");
@@ -35,6 +39,38 @@ function Profile() {
         setLoading(false);
       });
   }, []);
+
+  const handleEditToggle = () => {
+    setIsEditing((prev) => !prev);
+    setSuccessMessage("");
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleProfileUpdate = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios.put(
+        `${baseURL}/update-profile`,
+        {
+          name: formData.name,
+          username: formData.username,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setSuccessMessage("Profile updated successfully!");
+      setUserData({ ...userData, ...formData });
+      setIsEditing(false);
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to update profile");
+    }
+  };
 
   return (
     <div className="profile-container">
@@ -46,6 +82,7 @@ function Profile() {
         </header>
 
         {error && <div className="error-message">{error}</div>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
 
         {loading ? (
           <div className="loading-spinner"></div>
@@ -56,7 +93,17 @@ function Profile() {
                 <FaUser className="info-icon" />
                 <div className="info-content">
                   <span className="info-label">Name</span>
-                  <span className="info-value">{userData.name}</span>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="edit-input"
+                    />
+                  ) : (
+                    <span className="info-value">{userData.name}</span>
+                  )}
                 </div>
               </div>
 
@@ -64,7 +111,17 @@ function Profile() {
                 <FaUser className="info-icon" />
                 <div className="info-content">
                   <span className="info-label">Username</span>
-                  <span className="info-value">{userData.username}</span>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      name="username"
+                      value={formData.username}
+                      onChange={handleInputChange}
+                      className="edit-input"
+                    />
+                  ) : (
+                    <span className="info-value">{userData.username}</span>
+                  )}
                 </div>
               </div>
 
@@ -90,6 +147,23 @@ function Profile() {
                     })}
                   </span>
                 </div>
+              </div>
+
+              <div className="button-group">
+                {isEditing ? (
+                  <>
+                    <button className="btn save-btn" onClick={handleProfileUpdate}>
+                      Save Changes
+                    </button>
+                    <button className="btn cancel-btn" onClick={handleEditToggle}>
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <button className="btn edit-btn" onClick={handleEditToggle}>
+                    Update Profile
+                  </button>
+                )}
               </div>
             </section>
 
