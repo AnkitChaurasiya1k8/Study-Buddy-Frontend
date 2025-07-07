@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #e74c3c;
+  --light: #ecf0f1;
+  --dark: #1a252f;
+  --gray: #95a5a6;
+  --white: #ffffff;
+  --section-bg: #f8f9fa;
+}
+
+.contact-container {
+  min-height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.contact-box {
+  max-width: 700px;
+  width: 100%;
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(44, 62, 80, 0.08);
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+
+.underline {
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.contact-info {
+  margin: 3rem 0;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--section-bg);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.contact-name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.contact-email {
+  font-family: 'Roboto', sans-serif;
+  color: var(--secondary);
+  font-weight: 400;
+}
+
+.contact-note {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--gray);
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .contact-box {
+    padding: 2rem;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+/* Keep all previous styles, just update the .contact-email rules */
+.contact-email {
+  font-family: 'Roboto', sans-serif;
+  color: var(--secondary);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-email:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .contact-email {
+    word-break: break-all; /* Ensures long emails don't overflow */
+  }
+}
