@@ -3,6 +3,7 @@ import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useAuth } from "../../Context/AuthContext" 
 
 function Login() {
   const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -10,6 +11,8 @@ function Login() {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  const { login } = useAuth(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +30,7 @@ function Login() {
 
     try {
       const res = await axios.post(`${baseURL}/login`, formData);
-      localStorage.setItem("token", res.data.token);
+      login(res.data.token); 
       navigate("/home");
     } catch (err) {
       setError(err.response?.data?.error || "Login failed!");

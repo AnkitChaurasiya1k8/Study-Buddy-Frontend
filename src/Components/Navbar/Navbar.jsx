@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext"; 
 
 import HomeIcon from "@mui/icons-material/Home";
 import TopicIcon from "@mui/icons-material/Lightbulb";
@@ -11,9 +12,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth(); 
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -21,14 +22,8 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
-
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
+    logout(); 
     navigate("/login");
   };
 
@@ -43,7 +38,8 @@ function Navbar() {
         <li onClick={() => navigate("/home")}>
           <HomeIcon /> Home
         </li>
-        {isLoggedIn && (
+
+        {isAuthenticated && (
           <>
             <li onClick={() => navigate("/extractor")}>
               <TopicIcon /> Important Topics
@@ -53,13 +49,14 @@ function Navbar() {
             </li>
           </>
         )}
+
         <li onClick={() => navigate("/resources")}>
           <LibraryBooksIcon /> Resources
         </li>
       </ul>
 
       <div className="auth-section">
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <div className="authIcons">
             <button
               className="icon-btn"
