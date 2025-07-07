@@ -21,7 +21,21 @@ Our mission is to make quality learning accessible, interactive, and personalize
 
 ## 🚀 Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/StudyBuddy-Frontend.git
+### 1. Clone the Repository:
+```
+git clone https://github.com/AnkitChaurasiya1k8/Study-Buddy-Frontend.git
 cd StudyBuddy-Frontend
+```
+### 2. Install dependencies:
+```
+npm install
+```
+### 3. Configure environment variables (create .env file):
+```
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_GOOGLE_FONTS=Roboto|Playfair+Display
+```
+### 4. Start the development server:
+```
+npm start
+```
