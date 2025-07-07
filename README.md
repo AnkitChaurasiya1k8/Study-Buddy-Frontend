@@ -35,8 +35,7 @@ npm install
 ```
 ### 3. Configure environment variables (create .env file):
 ```
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_GOOGLE_FONTS=Roboto|Playfair+Display
+VITE_APP_API_URL=http://localhost:5000
 ```
 ### 4. Start the development server:
 ```
