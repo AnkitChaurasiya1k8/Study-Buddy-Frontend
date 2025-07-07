@@ -10,6 +10,7 @@
   --white: #ffffff;
   --border: rgba(44, 62, 80, 0.1);
   --error: #e74c3c;
+  --success: #2ecc71;
 }
 
 .profile-container {
@@ -83,6 +84,7 @@
 .info-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .info-label {
@@ -97,6 +99,48 @@
   font-size: 1.1rem;
   color: var(--primary);
   font-weight: 500;
+}
+
+.edit-input {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  background-color: var(--light);
+  color: var(--primary);
+  max-width: 300px;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.save-btn {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.cancel-btn {
+  background-color: var(--gray);
+  color: var(--white);
 }
 
 .activity-section {
@@ -166,6 +210,16 @@
   margin-bottom: 1.5rem;
 }
 
+.success-message {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success);
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
 .loading-spinner {
   width: 40px;
   height: 40px;
@@ -177,24 +231,30 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
   .profile-container {
     padding: 1.5rem;
   }
-  
+
   .profile-card {
     padding: 2rem;
   }
-  
+
   .profile-header h1 {
     font-size: 1.8rem;
   }
-  
+
   .info-item {
     gap: 1rem;
     padding: 1rem 0;
+  }
+
+  .edit-input {
+    width: 100%;
   }
 }
