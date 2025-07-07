@@ -118,3 +118,55 @@
 .profile-btn:hover {
   color: #ff4c29;
 }
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+/* Mobile and Tablet */
+@media (max-width: 960px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .auth-section {
+    display: none;
+  }
+
+  .auth-section.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .authBtns button {
+    width: 100%;
+    padding: 0.6rem;
+  }
+
+  .authIcons {
+    gap: 1.5rem;
+  }
+}
