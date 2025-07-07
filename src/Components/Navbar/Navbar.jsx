@@ -3,7 +3,6 @@ import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
-
 import HomeIcon from "@mui/icons-material/Home";
 import TopicIcon from "@mui/icons-material/Lightbulb";
 import AiIcon from "@mui/icons-material/SmartToy";
