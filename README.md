@@ -3,6 +3,9 @@ StudyBuddy is your intelligent academic assistant designed to help you understan
 From uploading past year papers to analyzing important topics and getting AI-powered answers from your PDFs — we streamline your learning process with cutting-edge technology.
 Our mission is to make quality learning accessible, interactive, and personalized using modern AI tools.
 
+## Screenshot
+
+
 ## ✨ Features
 
 - **Modern UI** with responsive design
