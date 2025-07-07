@@ -13,6 +13,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import Profile from "./Pages/Profile/Profile";
+import UpdateProfile from "./Pages//UpdateProfile/UpdateProfile";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/update-profile" element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} />
           <Route path="/extractor" element={<ProtectedRoute><Extractor /></ProtectedRoute>} />
           <Route path="/studywithai" element={<ProtectedRoute><StudyWithAI /></ProtectedRoute>} />
           <Route path="/about" element={<About />} />
