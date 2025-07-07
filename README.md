@@ -4,7 +4,7 @@ From uploading past year papers to analyzing important topics and getting AI-pow
 Our mission is to make quality learning accessible, interactive, and personalized using modern AI tools.
 
 ## Screenshot
-![Homepage Preview](./ScreenShots/Screenshot 2025-07-07 130543.png)
+![Homepage Preview](./ScreenShots/home_image)
 
 ## ✨ Features
 
