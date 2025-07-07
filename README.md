@@ -1,6 +1,7 @@
 # StudyBuddy Frontend
-
-![StudyBuddy Screenshot](https://via.placeholder.com/800x400?text=StudyBuddy+Screenshot)
+StudyBuddy is your intelligent academic assistant designed to help you understand, revise, and explore your subjects more efficiently.
+From uploading past year papers to analyzing important topics and getting AI-powered answers from your PDFs — we streamline your learning process with cutting-edge technology.
+Our mission is to make quality learning accessible, interactive, and personalized using modern AI tools.
 
 ## ✨ Features
 
